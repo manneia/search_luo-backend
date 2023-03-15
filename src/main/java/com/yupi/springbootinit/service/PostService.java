@@ -57,4 +57,12 @@ public interface PostService extends IService<Post> {
      * @return
      */
     Page<PostVO> getPostVOPage(Page<Post> postPage, HttpServletRequest request);
+
+    /**
+     * 获取文章列表
+     * @param postQueryRequest 文章查询参数
+     * @param request 请求参数
+     * @return 返回文章列表
+     */
+    Page<PostVO> listPostVOByPage(PostQueryRequest postQueryRequest, HttpServletRequest request);
 }
