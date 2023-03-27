@@ -1,5 +1,6 @@
 package com.luo.springbootinit.model.vo;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.luo.springbootinit.model.entity.Picture;
 import lombok.Data;
 
@@ -21,4 +22,6 @@ public class SearchVO implements Serializable {
     private List<PostVO> postList;
 
     private List<Picture> pictureList;
+
+    private List<?> dataList;
 }
