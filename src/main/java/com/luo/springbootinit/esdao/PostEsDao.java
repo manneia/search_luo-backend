@@ -12,5 +12,17 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
  */
 public interface PostEsDao extends ElasticsearchRepository<PostEsDTO, Long> {
 
+    /**
+     * 根据用户id查找文章列表
+     * @param userId 用户id
+     * @return 返回当前用户对应的文章列表
+     */
     List<PostEsDTO> findByUserId(Long userId);
+
+    /**
+     * 根据标题获取文章
+     * @param title 标题
+     * @return 返回当前标题对应的文章列表
+     */
+    List<PostEsDTO> findByTitle(String title);
 }

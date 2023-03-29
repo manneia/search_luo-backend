@@ -20,44 +20,44 @@ public interface PostService extends IService<Post> {
     /**
      * 校验
      *
-     * @param post
-     * @param add
+     * @param post 帖子
+     * @param add 是否增加
      */
     void validPost(Post post, boolean add);
 
     /**
      * 获取查询条件
      *
-     * @param postQueryRequest
-     * @return
+     * @param postQueryRequest 帖子查询参数
+     * @return 返回查询条件
      */
     QueryWrapper<Post> getQueryWrapper(PostQueryRequest postQueryRequest);
 
     /**
      * 从 ES 查询
      *
-     * @param postQueryRequest
-     * @return
+     * @param postQueryRequest 文章查询参数
+     * @return 返回分页的文章
      */
     Page<Post> searchFromEs(PostQueryRequest postQueryRequest);
 
     /**
      * 获取帖子封装
      *
-     * @param post
-     * @param request
-     * @return
+     * @param post 文章
+     * @param request 当前用户
+     * @return 返回帖子封装
      */
     PostVO getPostVO(Post post, HttpServletRequest request);
 
     /**
      * 分页获取帖子封装
      *
-     * @param postPage
-     * @param request
-     * @return
+     * @param postPage 分页帖子
+     * @param request 请求参数
+     * @return 返回分页帖子封装
      */
-    Page<PostVO> getPostVOPage(Page<Post> postPage, HttpServletRequest request);
+    Page<PostVO> getPostVoPage(Page<Post> postPage, HttpServletRequest request);
 
     /**
      * 获取文章列表
@@ -65,5 +65,5 @@ public interface PostService extends IService<Post> {
      * @param request 请求参数
      * @return 返回文章列表
      */
-    Page<PostVO> listPostVOByPage(PostQueryRequest postQueryRequest, HttpServletRequest request);
+    Page<PostVO> listPostVoByPage(PostQueryRequest postQueryRequest, HttpServletRequest request);
 }

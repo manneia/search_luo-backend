@@ -165,7 +165,7 @@ public class PostController {
         long size = postQueryRequest.getPageSize();
         // 限制爬虫
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
-        Page<PostVO> postVOPage = postService.listPostVOByPage(postQueryRequest, request);
+        Page<PostVO> postVOPage = postService.listPostVoByPage(postQueryRequest, request);
         return ResultUtils.success(postVOPage);
     }
 
@@ -190,7 +190,7 @@ public class PostController {
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
         Page<Post> postPage = postService.page(new Page<>(current, size),
                 postService.getQueryWrapper(postQueryRequest));
-        return ResultUtils.success(postService.getPostVOPage(postPage, request));
+        return ResultUtils.success(postService.getPostVoPage(postPage, request));
     }
 
     // endregion
@@ -209,15 +209,15 @@ public class PostController {
         // 限制爬虫
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
         Page<Post> postPage = postService.searchFromEs(postQueryRequest);
-        return ResultUtils.success(postService.getPostVOPage(postPage, request));
+        return ResultUtils.success(postService.getPostVoPage(postPage, request));
     }
 
     /**
      * 编辑（用户）
      *
-     * @param postEditRequest
-     * @param request
-     * @return
+     * @param postEditRequest 帖子编辑参数
+     * @param request 请求参数
+     * @return 返回是否成功
      */
     @PostMapping("/edit")
     public BaseResponse<Boolean> editPost(@RequestBody PostEditRequest postEditRequest, HttpServletRequest request) {

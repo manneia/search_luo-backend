@@ -20,10 +20,10 @@ public interface PostFavourMapper extends BaseMapper<PostFavour> {
     /**
      * 分页查询收藏帖子列表
      *
-     * @param page
-     * @param queryWrapper
-     * @param favourUserId
-     * @return
+     * @param page 分页
+     * @param queryWrapper 查询参数
+     * @param favourUserId 用户id
+     * @return 返回分页列表
      */
     Page<Post> listFavourPostByPage(IPage<Post> page, @Param(Constants.WRAPPER) Wrapper<Post> queryWrapper,
             long favourUserId);

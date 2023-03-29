@@ -11,15 +11,16 @@ import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 /**
+ * todo 取消注释开启任务
  * 增量同步帖子到 es
  *
  * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
  * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
-// todo 取消注释开启任务
-//@Component
+@Component
 @Slf4j
 public class IncSyncPostToEs {
 

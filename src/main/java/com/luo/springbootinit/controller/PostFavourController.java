@@ -82,7 +82,7 @@ public class PostFavourController {
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
         Page<Post> postPage = postFavourService.listFavourPostByPage(new Page<>(current, size),
                 postService.getQueryWrapper(postQueryRequest), loginUser.getId());
-        return ResultUtils.success(postService.getPostVOPage(postPage, request));
+        return ResultUtils.success(postService.getPostVoPage(postPage, request));
     }
 
     /**
@@ -104,6 +104,6 @@ public class PostFavourController {
         ThrowUtils.throwIf(size > 20 || userId == null, ErrorCode.PARAMS_ERROR);
         Page<Post> postPage = postFavourService.listFavourPostByPage(new Page<>(current, size),
                 postService.getQueryWrapper(postFavourQueryRequest.getPostQueryRequest()), userId);
-        return ResultUtils.success(postService.getPostVOPage(postPage, request));
+        return ResultUtils.success(postService.getPostVoPage(postPage, request));
     }
 }

@@ -95,8 +95,8 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
     /**
      * 获取查询包装类
      *
-     * @param postQueryRequest
-     * @return
+     * @param postQueryRequest 帖子查询参数
+     * @return 返回查询
      */
     @Override
     public QueryWrapper<Post> getQueryWrapper(PostQueryRequest postQueryRequest) {
@@ -262,7 +262,7 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
     }
 
     @Override
-    public Page<PostVO> getPostVOPage(Page<Post> postPage, HttpServletRequest request) {
+    public Page<PostVO> getPostVoPage(Page<Post> postPage, HttpServletRequest request) {
         List<Post> postList = postPage.getRecords();
         Page<PostVO> postVOPage = new Page<>(postPage.getCurrent(), postPage.getSize(), postPage.getTotal());
         if (CollectionUtils.isEmpty(postList)) {
@@ -310,12 +310,12 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
     }
 
     @Override
-    public Page<PostVO> listPostVOByPage(PostQueryRequest postQueryRequest, HttpServletRequest request) {
+    public Page<PostVO> listPostVoByPage(PostQueryRequest postQueryRequest, HttpServletRequest request) {
         long current = postQueryRequest.getCurrent();
         long size = postQueryRequest.getPageSize();
         Page<Post> postPage = this.page(new Page<>(current, size),
                 this.getQueryWrapper(postQueryRequest));
-        return this.getPostVOPage(postPage,request);
+        return this.getPostVoPage(postPage,request);
     }
 
 }
